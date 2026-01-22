@@ -6,4 +6,4 @@ A boot animation for ambxst. Runs at 640x360@48fps so it looks crisp and not too
 3. `sudo plymouth-set-default-theme -R /usr/share/plymouth/themes/ambxst `
 
 Preview:
-![Demo Animation](boot-anim.gif)
+![boot-anim](boot-anim.gif)
