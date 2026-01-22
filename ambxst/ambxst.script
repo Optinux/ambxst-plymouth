@@ -1,0 +1,32 @@
+TOTAL_FRAMES = 334;
+
+Window.SetBackgroundTopColor(0, 0, 0);
+Window.SetBackgroundBottomColor(0, 0, 0);
+
+for (i = 1; i <= TOTAL_FRAMES; i++) {
+    suffix = "";
+    if (i < 10) { suffix = "000"; }
+    else if (i < 100) { suffix = "00"; }
+    else if (i < 1000) { suffix = "0"; }
+    
+    frame_images[i] = Image("frame-" + suffix + i + ".png");
+}
+
+anim_sprite = Sprite();
+
+anim_sprite.SetX(Window.GetWidth() / 2 - frame_images[1].GetWidth() / 2);
+anim_sprite.SetY(Window.GetHeight() / 2 - frame_images[1].GetHeight() / 2);
+
+progress_counter = 1;
+
+fun refresh_callback () {
+    anim_sprite.SetImage(frame_images[progress_counter]);
+    
+    progress_counter++;
+    
+    if (progress_counter > TOTAL_FRAMES) {
+        progress_counter = 1;
+    }
+}
+
+Plymouth.SetRefreshFunction (refresh_callback);
